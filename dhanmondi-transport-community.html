@@ -140,10 +140,6 @@
             transition: background .3s
         }
 
-        [data-theme=dark] header {
-            border-bottom: 1px solid var(--line)
-        }
-
         .nav {
             display: flex;
             align-items: center;
@@ -199,7 +195,7 @@
 
         .links a {
             display: block;
-            padding: .5rem .85rem;
+            padding: .5rem .7rem;
             border-radius: 999px;
             text-decoration: none;
             color: var(--ink);
@@ -282,7 +278,7 @@
             }
         }
 
-        @media(min-width:1180px) {
+        @media(min-width:1320px) {
             .nav {
                 display: grid;
                 grid-template-columns: 1fr auto 1fr
@@ -383,8 +379,15 @@
             border-color: #fff
         }
 
+        .sw {
+            position: relative;
+            flex: 1;
+            display: flex
+        }
+
         .notch {
             position: absolute;
+            z-index: 2;
             background: var(--frame);
             color: var(--frame-ink);
             display: flex;
@@ -393,8 +396,8 @@
         }
 
         .notch.tr {
-            top: 0;
-            right: 0;
+            top: -1px;
+            right: -1px;
             min-width: var(--nw);
             border-bottom-left-radius: 26px;
             flex-direction: column;
@@ -403,8 +406,8 @@
         }
 
         .notch.bl {
-            bottom: 0;
-            left: 0;
+            bottom: -1px;
+            left: -1px;
             align-items: center;
             gap: .7rem;
             padding-right: 1.5rem;
@@ -450,10 +453,6 @@
 
         .links.open a {
             color: var(--ink)
-        }
-
-        footer .meta {
-            color: inherit
         }
 
         /* quick cards */
@@ -1073,28 +1072,77 @@
         footer {
             background: var(--frame);
             color: var(--frame-ink);
-            padding: 2rem 0 5rem;
-            font-size: .92rem
+            padding: 4rem 0 1.5rem;
+            font-size: .95rem;
+            min-height: 440px
         }
 
-        footer .wrap {
+        .fgrid {
             display: grid;
-            gap: 1rem
+            gap: 2rem;
+            grid-template-columns: 1fr
+        }
+
+        @media(min-width:700px) {
+            .fgrid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(min-width:1000px) {
+            .fgrid {
+                grid-template-columns: 1.4fr 1fr 1.2fr 1.2fr
+            }
+        }
+
+        footer h3 {
+            font-size: .9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: .1em
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: .55rem
+        }
+
+        footer a {
+            color: inherit;
+            text-underline-offset: 3px
+        }
+
+        footer .ph {
+            color: inherit;
+            opacity: .8;
+            font-style: italic
         }
 
         .fl {
             display: flex;
             gap: .8rem;
-            align-items: center;
-            flex-wrap: wrap
+            margin-bottom: 1rem
         }
 
         .fl img {
-            height: 46px;
+            height: 58px;
             width: auto;
             background: #fff;
-            border-radius: 8px;
-            padding: 2px
+            border-radius: 10px;
+            padding: 3px
+        }
+
+        .fbar {
+            margin-top: 2.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(127, 127, 127, .4);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: .5rem;
+            font-size: .85rem
         }
 
         #top {
@@ -1122,6 +1170,131 @@
                 scroll-behavior: auto !important
             }
         }
+
+        .exc {
+            padding: 0;
+            overflow: hidden
+        }
+
+        .exh {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.3rem;
+            font: 800 1.35rem Sora, "Hind Siliguri", sans-serif;
+            color: #0b2638
+        }
+
+        .exh.m {
+            background: var(--blue)
+        }
+
+        .exh.f {
+            background: var(--green)
+        }
+
+        .exh .tag {
+            font: 600 .75rem "Hind Siliguri", sans-serif;
+            background: rgba(255, 255, 255, .6)
+        }
+
+        .exb {
+            padding: 1rem;
+            display: grid;
+            gap: .7rem
+        }
+
+        .slot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.1rem;
+            border: 2px solid var(--line);
+            border-radius: 16px;
+            background: var(--bg);
+            transition: transform .2s, border-color .2s
+        }
+
+        .slot:hover {
+            border-color: var(--blue);
+            transform: translateY(-2px)
+        }
+
+        .slot b {
+            font: 700 1.15rem Sora, sans-serif;
+            font-variant-numeric: tabular-nums;
+            text-align: right
+        }
+
+        .band {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--frame);
+            color: var(--frame-ink);
+            border-radius: 26px;
+            padding: clamp(1.4rem, 4vw, 2.4rem)
+        }
+
+        .band h2 {
+            margin: 0
+        }
+
+        .band h2:after {
+            display: none
+        }
+
+        .mem {
+            text-align: center;
+            transition: transform .25s, border-color .25s
+        }
+
+        .mem:hover {
+            transform: translateY(-4px);
+            border-color: var(--blue)
+        }
+
+        .av {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto .8rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), var(--green));
+            display: grid;
+            place-items: center;
+            color: #0b2638;
+            overflow: hidden
+        }
+
+        .av svg {
+            width: 52px;
+            fill: currentColor
+        }
+
+        .av img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .role {
+            color: var(--muted)
+        }
+
+        .back {
+            display: inline-flex;
+            gap: .3rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--link)
+        }
+
+        .back:hover {
+            text-decoration: underline
+        }
     </style>
 </head>
 
@@ -1139,6 +1312,7 @@
                 <li><a href="#notices" data-i18n="nNot"></a></li>
                 <li><a href="#gallery" data-i18n="nGal"></a></li>
                 <li><a href="#about" data-i18n="nAbout"></a></li>
+                <li><a href="#committee" data-i18n="nCom"></a></li>
                 <li><a href="#contact" data-i18n="nContact"></a></li>
             </ul>
             <div class="actions"><button class="ic" id="lang" aria-label="Switch language">বাং</button>
@@ -1148,20 +1322,22 @@
         </nav>
     </header>
 
-    <main>
+    <main id="homeView">
         <section class="hero" id="home">
             <div class="frame">
-                <div class="shot">
-                    <img class="bg" src="hero.jpg" alt="Daffodil International University buses parked in a row">
-                    <div class="scrim"></div>
-                    <div class="hc">
-                        <h3 data-i18n="heroSub">Dhanmondi Transport Community</h3>
-                        <h1 data-i18n="heroH">Your University Journey, Better Connected.</h1>
-                        <p data-i18n="heroP"></p>
-                        <div class="cta">
-                            <a class="btn g" href="#schedule" data-i18n="ctaSch"></a>
-                            <a class="btn" href="#notices" data-i18n="ctaNot"></a>
-                            <a class="btn o" href="#routes" data-i18n="ctaRt"></a>
+                <div class="sw">
+                    <div class="shot">
+                        <img class="bg" src="hero.jpg" alt="Daffodil International University buses parked in a row">
+                        <div class="scrim"></div>
+                        <div class="hc">
+                            <h3 data-i18n="heroSub">Dhanmondi Transport Community</h3>
+                            <h1 data-i18n="heroH">Your University Journey, Better Connected.</h1>
+                            <p data-i18n="heroP"></p>
+                            <div class="cta">
+                                <a class="btn g" href="#schedule" data-i18n="ctaSch"></a>
+                                <a class="btn" href="#notices" data-i18n="ctaNot"></a>
+                                <a class="btn o" href="#routes" data-i18n="ctaRt"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="notch tr" role="group" aria-label="Dhaka date and time">
@@ -1194,7 +1370,7 @@
                 <p class="lead" data-i18n="exP"></p>
                 <span class="sample" data-i18n="sample"></span>
                 <div class="chips" id="exTabs" role="group" aria-label="Exam type"></div>
-                <div id="exList"></div>
+                <div class="grid" id="exList"></div>
             </div>
         </section>
 
@@ -1263,35 +1439,73 @@
             </div>
         </section>
 
-        <section id="contact" style="background:var(--surface)">
+        <section id="meet" style="background:var(--surface)">
             <div class="wrap">
-                <h2 data-i18n="coH"></h2>
-                <p class="lead" data-i18n="coP"></p>
-                <div class="grid three">
-                    <div class="card">
-                        <h3 data-i18n="coPhone"></h3>
-                        <p class="ph" data-i18n="coPending"></p>
-                    </div>
-                    <div class="card">
-                        <h3 data-i18n="coMail"></h3>
-                        <p class="ph" data-i18n="coPending"></p>
-                    </div>
-                    <div class="card">
-                        <h3 data-i18n="coLinks"></h3>
-                        <p><a href="https://daffodilvarsity.edu.bd/" target="_blank" rel="noopener"
-                                data-i18n="uniSite"></a></p>
-                    </div>
+                <div class="band">
+                    <div>
+                        <h2 data-i18n="bandH"></h2>
+                        <p data-i18n="bandB"></p>
+                    </div><a class="btn g" href="#committee" data-i18n="visitCom"></a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <main id="comView" hidden>
+        <section style="min-height:60vh">
+            <div class="wrap">
+                <p><a class="back" href="#home" data-i18n="back"></a></p>
+                <h2 data-i18n="comH"></h2>
+                <p class="lead" data-i18n="comP"></p>
+                <span class="sample" data-i18n="comSample"></span>
+                <div class="grid three" id="comList"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
         <div class="wrap">
-            <div class="fl"><img src="Dhanmondi_transport_logo.jpeg" alt="Dhanmondi Transport Community logo"><img
-                    src="Daffodil_University_logo.jpeg" alt="Daffodil International University logo"></div>
-            <p data-i18n="affil"></p>
-            <p class="meta" data-i18n="disc"></p>
+            <div class="fgrid">
+                <div>
+                    <div class="fl"><img src="Dhanmondi_transport_logo.jpeg"
+                            alt="Dhanmondi Transport Community logo"><img src="Daffodil_University_logo.jpeg"
+                            alt="Daffodil International University logo"></div>
+                    <p data-i18n="affil"></p>
+                    <p style="margin-top:.8rem;opacity:.85;font-size:.88rem" data-i18n="disc"></p>
+                </div>
+                <div>
+                    <h3 data-i18n="ftQuick"></h3>
+                    <ul>
+                        <li><a href="#home" data-i18n="nHome"></a></li>
+                        <li><a href="#schedule" data-i18n="nSch"></a></li>
+                        <li><a href="#exams" data-i18n="nEx"></a></li>
+                        <li><a href="#routes" data-i18n="nRoutes"></a></li>
+                        <li><a href="#notices" data-i18n="nNot"></a></li>
+                        <li><a href="#gallery" data-i18n="nGal"></a></li>
+                        <li><a href="#about" data-i18n="nAbout"></a></li>
+                        <li><a href="#committee" data-i18n="nCom"></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 data-i18n="ftCon"></h3>
+                    <ul>
+                        <li><b data-i18n="coPhone"></b><br><span class="ph" data-i18n="coPending"></span></li>
+                        <li><b data-i18n="coMail"></b><br><span class="ph" data-i18n="coPending"></span></li>
+                        <li><b data-i18n="ftSup"></b><br><span class="ph" data-i18n="coPending"></span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 data-i18n="ftUse"></h3>
+                    <ul>
+                        <li><a href="https://daffodilvarsity.edu.bd/" target="_blank" rel="noopener"
+                                data-i18n="uniSite"></a></li>
+                        <li><b data-i18n="ftUniCon"></b><br><span class="ph" data-i18n="coPending"></span></li>
+                        <li><a href="#committee" data-i18n="visitCom"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fbar"><span data-i18n="ftRights"></span><span>Dhanmondi Transport Community · Daffodil
+                    International University</span></div>
         </div>
     </footer>
 
@@ -1316,7 +1530,7 @@
         /* ---- Translations ---- */
         const T = {
             en: {
-                affilShort: "DIU community initiative", stopsL: "Stops", nextL: "Next", nextBus: "Next bus", satThu: "Saturday to Thursday", nEx: "Exams", nGal: "Gallery", exH: "Exam Schedule", exP: "Exam dates, times and the bus for exam day.", exAll: "All", exMid: "Midterm", exFinal: "Final", exBus: "Exam-day bus", exUp: "Upcoming", exPast: "Completed", gH: "Gallery", gP: "Photos and moments from the community.", gAdd: "Preview your photos", gNote: "Photos you add are visible only in this browser, for this session.", gEmpty: "Official photos have not been added yet. The tiles below are placeholders.", gPh: "Photo placeholder", hint: "Hover or tap for details", nHome: "Home", nSch: "Schedule", nRoutes: "Routes", nNot: "Notices", nAbout: "About", nContact: "Contact",
+                affilShort: "DIU community initiative", stopsL: "Stops", nextL: "Next", nextBus: "Next bus", nCom: "Committee", comH: "Committee", comP: "Meet the members of the Dhanmondi Transport Community committee.", comSample: "Member details will be added once supplied.", back: "← Back to home", bandH: "Meet the people behind the community", bandB: "See the committee members.", visitCom: "Visit Committee →", slot: "Slot", exMidT: "Midterm Exam", exFinalT: "Final Exam", ftQuick: "Quick links", ftCon: "Contact", ftSup: "Transport support", ftUse: "Useful links", ftUniCon: "DIU contact page", ftRights: "© 2026 Dhanmondi Transport Community", memName: "Name to be added", memRole: "Position to be added", satThu: "Saturday to Thursday", nEx: "Exams", nGal: "Gallery", exH: "Exam Schedule", exP: "Class timings for midterm and final exams.", exAll: "All", exMid: "Midterm", exFinal: "Final", exBus: "Exam-day bus", exUp: "Upcoming", exPast: "Completed", gH: "Gallery", gP: "Photos and moments from the community.", gAdd: "Preview your photos", gNote: "Photos you add are visible only in this browser, for this session.", gEmpty: "Official photos have not been added yet. The tiles below are placeholders.", gPh: "Photo placeholder", hint: "Hover or tap for details", nHome: "Home", nSch: "Schedule", nRoutes: "Routes", nNot: "Notices", nAbout: "About", nContact: "Contact",
                 heroSub: "Dhanmondi Transport Community", heroH: "Your University Journey, Better Connected.", heroP: "Your central destination for university bus schedules, transportation updates, important announcements, and community information.",
                 ctaSch: "Explore Bus Schedules", ctaNot: "Latest Notices", ctaRt: "Explore Routes",
                 affil: "An Initiative of the Dhanmondi Transport Community | Daffodil International University", clockLbl: "Dhaka time",
@@ -1333,7 +1547,7 @@
                 dayN: { sat: "Saturday", sun: "Sunday", mon: "Monday", tue: "Tuesday", wed: "Wednesday", thu: "Thursday", fri: "Friday" }, urgent: "Urgent", important: "Important", sampleTag: "Sample"
             },
             bn: {
-                affilShort: "ড্যাফোডিল কমিউনিটি উদ্যোগ", stopsL: "স্টপ", nextL: "পরবর্তী", nextBus: "পরবর্তী বাস", satThu: "শনিবার থেকে বৃহস্পতিবার", nEx: "পরীক্ষা", nGal: "গ্যালারি", exH: "পরীক্ষার সময়সূচি", exP: "পরীক্ষার তারিখ, সময় ও পরীক্ষার দিনের বাস।", exAll: "সব", exMid: "মিডটার্ম", exFinal: "ফাইনাল", exBus: "পরীক্ষার দিনের বাস", exUp: "আসন্ন", exPast: "সম্পন্ন", gH: "গ্যালারি", gP: "কমিউনিটির ছবি ও মুহূর্ত।", gAdd: "আপনার ছবি প্রিভিউ করুন", gNote: "আপনার যোগ করা ছবি শুধু এই ব্রাউজারে, এই সেশনে দেখা যায়।", gEmpty: "অফিসিয়াল ছবি এখনও যোগ হয়নি। নিচের জায়গাগুলো প্লেসহোল্ডার।", gPh: "ছবির জায়গা", hint: "বিস্তারিত দেখতে হোভার বা ট্যাপ করুন", nHome: "হোম", nSch: "সময়সূচি", nRoutes: "রুট", nNot: "নোটিশ", nAbout: "সম্পর্কে", nContact: "যোগাযোগ",
+                affilShort: "ড্যাফোডিল কমিউনিটি উদ্যোগ", stopsL: "স্টপ", nextL: "পরবর্তী", nextBus: "পরবর্তী বাস", nCom: "কমিটি", comH: "কমিটি", comP: "ধানমন্ডি ট্রান্সপোর্ট কমিউনিটির কমিটির সদস্যদের সঙ্গে পরিচিত হোন।", comSample: "সদস্যদের তথ্য পাওয়া গেলে যোগ করা হবে।", back: "← হোমে ফিরুন", bandH: "কমিউনিটির পেছনের মানুষদের জানুন", bandB: "কমিটির সদস্যদের দেখুন।", visitCom: "কমিটি দেখুন →", slot: "স্লট", exMidT: "মিডটার্ম পরীক্ষা", exFinalT: "ফাইনাল পরীক্ষা", ftQuick: "দ্রুত লিংক", ftCon: "যোগাযোগ", ftSup: "পরিবহন সহায়তা", ftUse: "প্রয়োজনীয় লিংক", ftUniCon: "DIU যোগাযোগ পাতা", ftRights: "© ২০২৬ ধানমন্ডি ট্রান্সপোর্ট কমিউনিটি", memName: "নাম যোগ করা হবে", memRole: "পদবি যোগ করা হবে", satThu: "শনিবার থেকে বৃহস্পতিবার", nEx: "পরীক্ষা", nGal: "গ্যালারি", exH: "পরীক্ষার সময়সূচি", exP: "মিডটার্ম ও ফাইনাল পরীক্ষার ক্লাসের সময়।", exAll: "সব", exMid: "মিডটার্ম", exFinal: "ফাইনাল", exBus: "পরীক্ষার দিনের বাস", exUp: "আসন্ন", exPast: "সম্পন্ন", gH: "গ্যালারি", gP: "কমিউনিটির ছবি ও মুহূর্ত।", gAdd: "আপনার ছবি প্রিভিউ করুন", gNote: "আপনার যোগ করা ছবি শুধু এই ব্রাউজারে, এই সেশনে দেখা যায়।", gEmpty: "অফিসিয়াল ছবি এখনও যোগ হয়নি। নিচের জায়গাগুলো প্লেসহোল্ডার।", gPh: "ছবির জায়গা", hint: "বিস্তারিত দেখতে হোভার বা ট্যাপ করুন", nHome: "হোম", nSch: "সময়সূচি", nRoutes: "রুট", nNot: "নোটিশ", nAbout: "সম্পর্কে", nContact: "যোগাযোগ",
                 heroSub: "ধানমন্ডি ট্রান্সপোর্ট কমিউনিটি", heroH: "আপনার বিশ্ববিদ্যালয় যাত্রা, আরও সংযুক্ত।", heroP: "বিশ্ববিদ্যালয়ের বাসের সময়সূচি, পরিবহন হালনাগাদ, গুরুত্বপূর্ণ ঘোষণা ও কমিউনিটির তথ্যের কেন্দ্রীয় ঠিকানা।",
                 ctaSch: "বাসের সময়সূচি দেখুন", ctaNot: "সাম্প্রতিক নোটিশ", ctaRt: "রুট দেখুন",
                 affil: "ধানমন্ডি ট্রান্সপোর্ট কমিউনিটির একটি উদ্যোগ | Daffodil International University", clockLbl: "ঢাকার সময়",
@@ -1467,22 +1681,15 @@
 
 
         /* ---- Exam schedule (sample) ---- */
-        const EXAMS = [
-            { type: "mid", title: { en: "Sample Midterm Exam: Day 1", bn: "নমুনা মিডটার্ম পরীক্ষা: ১ম দিন" }, date: "2026-11-14", start: "09:00", end: "11:00", route: "r1", bus: "07:30" },
-            { type: "mid", title: { en: "Sample Midterm Exam: Day 2", bn: "নমুনা মিডটার্ম পরীক্ষা: ২য় দিন" }, date: "2026-11-15", start: "11:30", end: "13:30", route: "r1", bus: "09:30" },
-            { type: "final", title: { en: "Sample Final Exam: Day 1", bn: "নমুনা ফাইনাল পরীক্ষা: ১ম দিন" }, date: "2026-12-20", start: "09:00", end: "12:00", route: "r1", bus: "07:30" },
-            { type: "final", title: { en: "Sample Final Exam: Day 2", bn: "নমুনা ফাইনাল পরীক্ষা: ২য় দিন" }, date: "2026-12-22", start: "14:00", end: "17:00", route: "r1r", bus: "12:30" }];
+        const EXAM_SLOTS = { mid: [["09:00", "11:00"], ["11:30", "13:30"]], final: [["09:00", "12:00"], ["14:00", "17:00"]] };
         let exCat = "all";
         function renderExams() {
             const tabs = $("#exTabs"), box = $("#exList"); tabs.innerHTML = ""; box.innerHTML = "";
             [["all", t("exAll")], ["mid", t("exMid")], ["final", t("exFinal")]].forEach(([k, n]) => { const x = el("button", "chip", n); x.type = "button"; x.setAttribute("aria-pressed", k === exCat); x.onclick = () => { exCat = k; renderExams() }; tabs.append(x) });
-            const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Dhaka" }).format(new Date());
-            EXAMS.filter(x => exCat === "all" || x.type === exCat).sort((a, b) => a.date.localeCompare(b.date)).forEach(x => {
-                const r = ROUTES.find(y => y.id === x.route), past = x.date < today, c = el("article", "card ex" + (past ? " past" : ""));
-                const mon = new Intl.DateTimeFormat(lang === "bn" ? "bn-BD" : "en-GB", { month: "short", timeZone: "Asia/Dhaka" }).format(new Date(x.date + "T00:00:00+06:00"));
-                c.innerHTML = `<div class="d">${nf(String(+x.date.slice(8)))}<small>${mon}</small></div><div><h3>${esc(L(x.title))}</h3>
-<div class="info meta"><span>${fmtD(x.date)}</span><span>${fmtT(x.start)} – ${fmtT(x.end)}</span><span>${t("exBus")}: ${fmtT(x.bus)} (${esc(L(r.name))})</span></div>
-<span class="tag">${past ? t("exPast") : t("exUp")}</span> <span class="tag">${t("sampleTag")}</span></div>`; box.append(c)
+            ["mid", "final"].filter(k => exCat === "all" || exCat === k).forEach((k, i) => {
+                const c = el("article", "card exc");
+                c.innerHTML = `<div class="exh ${k === "mid" ? "m" : "f"}"><span>${t(k === "mid" ? "exMidT" : "exFinalT")}</span><span class="tag">${t("sampleTag")}</span></div>
+<div class="exb">${EXAM_SLOTS[k].map((s, n) => `<div class="slot"><span>${t("slot")} ${nf(String(n + 1))}</span><b>${fmtT(s[0])} – ${fmtT(s[1])}</b></div>`).join("")}</div>`; box.append(c)
             })
         }
 
@@ -1505,13 +1712,25 @@
         $("#lbP").onclick = () => openLb(lbi - 1); $("#lbN").onclick = () => openLb(lbi + 1); $("#lbX").onclick = () => $("#lb").close();
         $("#gFile").addEventListener("change", e => { [...e.target.files].forEach(f => userPics.push({ src: URL.createObjectURL(f), cap: { en: f.name, bn: f.name } })); e.target.value = ""; renderGallery() });
 
+        /* ---- Committee ---- */
+        /* Add real members: {name:{en:"",bn:""},role:{en:"",bn:""},photo:"committee/name.jpg",phone:"",email:""} */
+        const COMMITTEE = Array.from({ length: 6 }, () => ({ ph: true }));
+        const AV = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg>';
+        function renderCommittee() {
+            const g = $("#comList"); g.innerHTML = "";
+            COMMITTEE.forEach(m => {
+                const nm = m.ph ? t("memName") : L(m.name), rl = m.ph ? t("memRole") : L(m.role), c = el("article", "card mem");
+                c.innerHTML = `<div class="av">${m.photo ? `<img src="${m.photo}" alt="${esc(nm)}">` : AV}</div><h3>${esc(nm)}</h3><p class="role">${esc(rl)}</p>${m.phone ? `<p><a href="tel:${esc(m.phone)}">${esc(m.phone)}</a></p>` : ""}${m.email ? `<p><a href="mailto:${esc(m.email)}">${esc(m.email)}</a></p>` : ""}`; g.append(c)
+            })
+        }
+
         /* ---- Language & theme ---- */
         function applyLang() {
             document.documentElement.lang = lang;
             $$("[data-i18n]").forEach(e => e.textContent = t(e.dataset.i18n));
             $$("[data-i18n-ph]").forEach(e => e.placeholder = t(e.dataset.i18nPh));
             $("#lang").textContent = lang === "en" ? "বাং" : "EN"; $("#lang").setAttribute("aria-label", lang === "en" ? "বাংলায় দেখুন" : "Switch to English");
-            fillSelects(); renderSchedule(); renderRoutes(); renderCats(); renderNotices(); renderExams(); renderGallery(); tick()
+            fillSelects(); renderSchedule(); renderRoutes(); renderCats(); renderNotices(); renderExams(); renderGallery(); renderCommittee(); tick()
         }
         function applyTheme() { document.documentElement.dataset.theme = theme; $("#theme").textContent = theme === "dark" ? "☀️" : "🌙" }
         $("#lang").onclick = () => { lang = lang === "en" ? "bn" : "en"; save("dtc-lang", lang); applyLang() };
@@ -1525,16 +1744,22 @@
         menu.onclick = () => { const o = links.classList.toggle("open"); menu.setAttribute("aria-expanded", o) };
         $$("#links a").forEach(a => a.addEventListener("click", () => { links.classList.remove("open"); menu.setAttribute("aria-expanded", false) }));
         $("#top").onclick = () => scrollTo({ top: 0 });
-        const secs = ["home", "schedule", "exams", "routes", "notices", "gallery", "about", "contact"].map(id => $("#" + id));
-        addEventListener("scroll", () => {
-            $("#top").classList.toggle("show", scrollY > 500);
-            let cur = "home"; secs.forEach(s => { if (s.getBoundingClientRect().top < 120) cur = s.id });
+        const hv = $("#homeView"), cv = $("#comView");
+        const secs = ["home", "schedule", "exams", "routes", "notices", "gallery", "about", "contact"].map(id => document.getElementById(id));
+        function spy() {
+            $("#top").classList.toggle("show", scrollY > 500); let cur = "home";
+            if (!cv.hidden) cur = "committee"; else secs.forEach(x => { if (x.getBoundingClientRect().top < 120) cur = x.id });
             $$("#links a").forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + cur))
-        }, { passive: true });
+        }
+        function route() {
+            const c = location.hash === "#committee"; hv.hidden = c; cv.hidden = !c;
+            if (c) scrollTo(0, 0); else { const id = location.hash.slice(1), tg = id && document.getElementById(id); if (tg) tg.scrollIntoView(); else if (!id) scrollTo(0, 0) } spy()
+        }
+        addEventListener("scroll", spy, { passive: true }); addEventListener("hashchange", route);
 
         /* logo fallback: hide broken images gracefully */
         $$("img").forEach(i => i.addEventListener("error", () => { i.style.visibility = "hidden" }));
-        applyTheme(); applyLang(); setInterval(tick, 1000);
+        applyTheme(); applyLang(); route(); setInterval(tick, 1000);
     </script>
 </body>
 
